@@ -35,16 +35,20 @@ public class MovieController {
     public void insertMovie(@RequestBody Movie movie){
         movieService.insertMovie(movie);
     }
-    @PutMapping(value = "/movies")
+    @PutMapping(value = "/movies")                              /*working*/
     public void updateMovie(@RequestBody Movie movie){
         movieService.updateMovie(movie);
     }
-    @DeleteMapping(value = "/movies/{id}")
+    @DeleteMapping(value = "/movies/{id}")                      /*working*/
     public void deleteMovie(@PathVariable String id){
         movieService.deleteMovie(id);
     }
-    @DeleteMapping(value = "/movies/name")
-    public void deleteByName(@RequestParam(name = "name") String name){
+    @DeleteMapping(value = "/movies/name")                      /*working*/
+    public void deleteByName(@RequestParam String name){
         movieService.deleteByName(name);
+    }
+    @GetMapping(value = "/movies/regex/{regex}")                /*working*/
+    public List<Movie> getByFirstName(@PathVariable String regex){
+        return movieService.findByFirstName(regex);
     }
 }

@@ -12,12 +12,13 @@ public class Movie {
     private String director;
     private String producer;
     private float IMDB;
-    public Movie(String id, String name, Actors actor, String director, String producer) {
+    public Movie(String id, String name, Actors actor, String director, String producer,float imdb) {
         this.id = id;
         this.name = name;
         this.actor = actor;
         this.director = director;
         this.producer = producer;
+        this.IMDB = imdb;
     }
     public Movie() {
     }

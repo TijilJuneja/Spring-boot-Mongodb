@@ -34,5 +34,9 @@ public class MovieService {
     public void deleteByName(String name) {
         movieRepository.deleteByName(name);
     }
+
+    public List<Movie> findByFirstName(String s) {
+        return movieRepository.abc(s);
+    }
     
 }

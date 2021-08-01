@@ -6,8 +6,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 public interface MovieRepository extends MongoRepository<Movie,String>{
-    public void deleteByName(String name);
+    public void deleteByName(String name);  /*Queries By Method Name*/
 
-    @Query(value = "{'name' : {$regex : ?0}}")
-    public List<Movie> abc();
+    @Query(value = "{'name' : {$regex : ?0}}")  /*Queries based on JSon*/
+    public List<Movie> abc(String s);
 }
