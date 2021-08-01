@@ -1,4 +1,4 @@
-package co.movie.movie;
+package co.movie.movies;
 
 public class Actors {
     private String name;
