@@ -3,8 +3,6 @@ package co.movie.movies;
 import java.util.List;
 import java.util.Optional;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,11 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MovieController {
-    Logger logger = LoggerFactory.getLogger(MovieController.class);
 
     @Autowired
     MovieService movieService;
-
     @GetMapping(value = "/movies")                              /*working*/
     public List<Movie> getAllMovies(){
         return movieService.findAll();
