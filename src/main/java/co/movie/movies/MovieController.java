@@ -19,6 +19,24 @@ public class MovieController {
 
     @Autowired
     MovieService movieService;
+
+    @Autowired
+    private MovieRepositoryES movieRepositoryES;
+
+    @PostMapping(value = "/moviesES")                           /*ElasticSearch working*/
+    public void postMovie(@RequestBody List<MovieES> movieES){
+        movieRepositoryES.saveAll(movieES);
+    }
+    @GetMapping(value = "/moviesES")                           /*ElasticSearch working*/
+    public Iterable<MovieES> getAllMovieES(){
+        return movieRepositoryES.findAll();
+    }
+
+    @GetMapping(value = "/moviesES/{name}")                     /*ElasticSearch working*/
+    public Iterable<MovieES> getByNameMovieES(@PathVariable String name){
+        return movieRepositoryES.findByName(name);
+    }
+
     @GetMapping(value = "/movies")                              /*working*/
     public List<Movie> getAllMovies(){
         return movieService.findAll();

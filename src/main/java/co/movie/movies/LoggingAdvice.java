@@ -19,12 +19,12 @@ public class LoggingAdvice {
 
 	Logger log = LoggerFactory.getLogger(LoggingAdvice.class);
 	
-	@Pointcut(value="execution(* co.movie.movies.*.*(..) )")
+	@Pointcut(value="execution(* co.movie.movies.*.*(..) )") /* this determines where the aspect will be called,here we have considered for thw whole package*/
 	public void myPointcut() {
 		
 	}
 	
-	@Around("myPointcut()")
+	@Around("myPointcut()") /* Around annotation depicts that the logger method will be called before and after the method calls */
 	public Object applicationLogger(ProceedingJoinPoint pjp) throws Throwable {
 		ObjectMapper mapper = new ObjectMapper();
 		String methodName = pjp.getSignature().getName();
